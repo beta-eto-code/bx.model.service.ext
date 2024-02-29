@@ -62,8 +62,8 @@ class SomeROSimpleClass extends BaseROModelService
 use Bitrix\Main\UserTable;
 use BX\Data\Provider\DataManagerDataProvider;
 
-$userRepository = new DataManagerDataProvider(UserTable::class);
-$userRepository = new SomeROSimpleClass($userRepository);
+$userDataProvider = new DataManagerDataProvider(UserTable::class);
+$userRepository = new SomeROSimpleClass($userDataProvider);
 $userCollection = $userRepository->getList(['filter' => ['ACTIVE' => 'Y'], 'limit' => 10]);
 ```
 
@@ -150,8 +150,8 @@ use BX\Data\Provider\DataManagerDataProvider;
 use Bx\Model\Services\FileService;
 use Bx\Model\Models\File;
 
-$userRepository = new DataManagerDataProvider(UserTable::class);
-$userRepository = new SomeROLinkedClass($userRepository, new FileService());
+$userDataProvider = new DataManagerDataProvider(UserTable::class);
+$userRepository = new SomeROLinkedClass($userDataProvider, new FileService());
 $userCollection = $userRepository->getList(['filter' => ['ACTIVE' => 'Y'], 'limit' => 10]);
 $firstUser = $userCollection->first();
 /**
