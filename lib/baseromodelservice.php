@@ -246,8 +246,6 @@ abstract class BaseROModelService implements QueryableModelServiceInterface, Ext
             $params['fetch'] = $fetchNamesList;
         }
 
-        var_dump(json_encode($params));
-
         /**
          * @psalm-suppress PossiblyInvalidArgument
          */
